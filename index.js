@@ -63,19 +63,3 @@ app.delete("/apagar/:id", (request, response) => {
     })
 })
 
-app.get("/musica/:id", (request, response) => {
-    const { id } = request.params
-
-    const comandoSelect = "SELECT * FROM musicas_arturSodre WHERE id = ?"
-
-    sql.query(comandoSelect, [id], (error, data) => {
-        if (error) {
-            console.log(error)
-            return
-        }
-
-        response.json(data[0])
-    })
-})
-
-
